@@ -15,8 +15,8 @@ public class SendingEmail {
 
     public static void main(String[] args) {
 
-        final String username = "postmaster@sandbox463369fb9d0a4440bc7349f09388e914.mailgun.org";
-        final String password = "Test@321@Test";
+        final String username = "Provide your SMTP server  username";
+        final String password = "SMTP passwordt";
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", true);
@@ -34,17 +34,17 @@ public class SendingEmail {
         try {
 
             MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("sharanyug@gmail.com"));
+            message.setFrom(new InternetAddress("Give the mail id u wish to receive mail on"));
             message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse("sharanyug@gmail.com"));
+                    InternetAddress.parse("Give the mail id u wish to receive mail on"));
             message.setSubject("Please find attached the PDF to XLS converted file");
 
             MimeBodyPart messageBodyPart = new MimeBodyPart();
 
             Multipart multipart = new MimeMultipart();
 
-            String file = "/Users/adityaanand/IdeaProjects/datamaticspdftoxls/AdityaPDFtoXLS.xls";
-            String fileName = "AdityaPDFtoXLS.xls";
+            String file = "/Users/adityaanand/IdeaProjects/datamaticspdftoxls/AdityaPDFtoXLS.xls"; //Path for ur xls file
+            String fileName = "AdityaPDFtoXLS.xls"; //Name of ur xls file
             DataSource source = new FileDataSource(file);
             messageBodyPart.setDataHandler(new DataHandler(source));
             messageBodyPart.setFileName(fileName);
